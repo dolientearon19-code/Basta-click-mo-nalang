@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kaye&#39;s 19th Birthday — Jasmine Kaye</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root { color-scheme: dark; --ink:#f7f1e9; --muted:#c1b4ac; --pink:#ff9fba; --gold:#ffd28b; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; display:grid; place-items:center; padding:30px 16px; color:var(--ink); background:radial-gradient(ellipse at 50% 10%,#392747 0,#171321 46%,#100f19 100%); font-family:'DM Sans',sans-serif; }
+.invite { position:relative; width:min(100%,540px); overflow:hidden; padding:34px 42px 28px; text-align:center; border:1px solid rgba(255,210,139,.5); border-radius:22px; background:linear-gradient(160deg,rgba(44,32,53,.97),rgba(25,22,35,.98)); box-shadow:0 26px 90px #09070dbb,inset 0 0 50px #ff9fba0a; }
+.invite:before,.invite:after { content:'✦'; position:absolute; color:var(--gold); opacity:.75; font-size:18px; }.invite:before{top:75px;left:28px}.invite:after{top:126px;right:31px;font-size:12px}
+.topline,.footer { font:500 10px 'DM Mono',monospace; letter-spacing:1.5px; color:#c9b7c5; }.topline { text-align:left; }.top-right { float:right; color:#887889; }.status-dot { display:inline-block;width:7px;height:7px;margin-right:7px;border-radius:50%;background:#88e0ad;box-shadow:0 0 10px #88e0ad; }
+.cake { position:relative; display:grid; place-items:center; width:112px; height:104px; margin:15px auto 9px; font-size:66px; filter:drop-shadow(0 6px 13px #ff9fba50); animation:cake-float 2.4s ease-in-out infinite; transform-origin:center bottom; }
+.cake-art { line-height:1; }
+.candle-flame { position:absolute; top:8px; left:calc(50% - 4px); width:9px; height:15px; border-radius:55% 45% 55% 45%; background:linear-gradient(160deg,#fff8bd 5%,#ffcf55 45%,#ff743d 100%); box-shadow:0 0 8px 3px #ffbe5b88; transform:rotate(45deg); transform-origin:50% 90%; animation:flame-flicker .32s ease-in-out infinite alternate; }
+@keyframes flame-flicker { from { transform:rotate(40deg) scale(.92,.95); opacity:.86; } to { transform:rotate(50deg) scale(1.08,1.12); opacity:1; } }
+@keyframes cake-float { 0%,100% { transform:translateY(0) rotate(-2deg); } 50% { transform:translateY(-9px) rotate(2deg); } }
+@media (prefers-reduced-motion: reduce) { .cake, .candle-flame { animation:none; } }.eyebrow { margin:0 0 8px; font:11px 'DM Mono',monospace; letter-spacing:1px; text-transform:uppercase; color:var(--gold); }
+h1 { margin:0; font:700 clamp(43px,10vw,61px)/.98 'Playfair Display',serif; letter-spacing:-1.5px; } h1 span { color:var(--pink); font-style:italic; }
+.rule { margin:18px auto 15px; width:78%; height:1px; background:linear-gradient(90deg,transparent,#9b748d,transparent); color:var(--gold); }.rule span { position:relative; top:-11px; padding:0 12px; background:#2a2033; }
+.intro { margin:0; color:var(--muted); font-size:14px; line-height:1.6; }.name { margin:4px 0 21px; color:#fff1dc; font:600 27px 'Playfair Display',serif; }
+.details { display:grid; gap:12px; text-align:left; padding:17px 19px; border:1px solid #ffffff1c; border-radius:14px; background:#ffffff08; }.detail { display:flex; gap:13px; align-items:flex-start; }.icon { width:24px; color:var(--pink); font-size:20px; line-height:1.2; text-align:center; }.detail small { display:block; margin:1px 0 5px; color:#bd9fb6; font:10px 'DM Mono',monospace; letter-spacing:1.4px; }.detail strong { display:block; font-size:14px; font-weight:500; line-height:1.55; }.detail i { color:var(--gold); font-style:normal; }
+.message { margin:19px 0 17px; color:var(--muted); font-size:13px; }.buttons { display:flex; justify-content:center; gap:9px; flex-wrap:wrap; }.buttons span { padding:11px 14px; border:1px solid #ff9fba77; border-radius:8px; color:#ffe9ef; font:500 10px 'DM Mono',monospace; letter-spacing:.8px; background:#ff9fba12; }.buttons span:first-child { color:#241821; border-color:var(--pink); background:var(--pink); }
+.footer { margin:22px 0 0; font-size:9px; letter-spacing:1.3px; }.footer span { margin-left:4px; color:var(--gold); }
+@media(max-width:420px){.invite{padding:27px 22px 24px}.topline{font-size:9px}.details{padding:15px 13px}.detail strong{font-size:13px}}
+
+.accept-button { padding:11px 14px; border:1px solid var(--pink); border-radius:8px; color:#241821; background:var(--pink); font:500 10px 'DM Mono',monospace; letter-spacing:.8px; cursor:pointer; transition:transform .15s,filter .15s; }
+.accept-button:hover { transform:translateY(-1px); filter:brightness(1.08); }
+.accept-button:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+.accept-button:disabled { cursor:default; opacity:.9; }
+
+.fireworks { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+.invite > :not(.fireworks) { position:relative; z-index:1; }
+.burst { position:absolute; display:block; width:0; height:0; }
+.spark { position:absolute; top:0; left:-1px; display:block; width:2px; height:11px; border-radius:100%; opacity:0; background:linear-gradient(to top,transparent 0%,#ffb357 35%,#fff8dc 100%); box-shadow:0 0 5px #ffc46a; transform-origin:50% 100%; animation:spark-flight 3.4s cubic-bezier(.12,.68,.25,1) infinite; animation-delay:var(--delay,0s); }
+.spark:nth-child(3n+2) { background:linear-gradient(to top,transparent,#ff8eae 75%,#fff5ed); box-shadow:0 0 5px #ff9fba; }
+.spark:nth-child(3n) { background:linear-gradient(to top,transparent,#a99aff 75%,#fff); box-shadow:0 0 5px #b9a9ff; }
+.burst-one { top:105px; left:16%; --delay:0s; }
+.burst-two { top:178px; right:17%; --delay:1.1s; transform:scale(.75); }
+.burst-three { top:300px; left:9%; --delay:2.2s; transform:scale(.6); }
+.burst-four { top:78px; right:38%; --delay:.35s; }
+.burst-five { top:245px; right:8%; --delay:.7s; }
+.burst-six { top:350px; right:18%; --delay:1.05s; }
+.burst-seven { top:420px; left:29%; --delay:1.4s; }
+.burst-eight { top:510px; right:35%; --delay:1.75s; }
+.burst-nine { top:205px; left:35%; --delay:2.1s; }
+.burst-ten { top:385px; left:14%; --delay:2.45s; }
+.burst-eleven { top:565px; right:10%; --delay:2.8s; }
+.burst-twelve { top:135px; left:58%; --delay:3.15s; }
+@keyframes spark-flight { 0%,7% { opacity:0; transform:rotate(var(--angle)) translateY(0) scaleY(.15); } 13% { opacity:1; } 44% { opacity:.9; transform:rotate(var(--angle)) translateY(calc(-1 * var(--distance))) scaleY(1); } 76%,100% { opacity:0; transform:rotate(var(--angle)) translateY(calc(-1.35 * var(--distance))) scaleY(.35); } }
+@media (prefers-reduced-motion: reduce) { .spark { animation:none; opacity:.75; transform:rotate(var(--angle)) translateY(calc(-1 * var(--distance))); } }
+  </style>
+</head>
+<body>
+  <main class="invite" aria-labelledby="title">
+    <div class="fireworks" aria-hidden="true"><i class="burst burst-one"><span class="spark" style="--angle:0deg;--distance:20px"></span><span class="spark" style="--angle:24deg;--distance:25px"></span><span class="spark" style="--angle:53deg;--distance:30px"></span><span class="spark" style="--angle:82deg;--distance:35px"></span><span class="spark" style="--angle:111deg;--distance:23px"></span><span class="spark" style="--angle:141deg;--distance:28px"></span><span class="spark" style="--angle:171deg;--distance:33px"></span><span class="spark" style="--angle:201deg;--distance:21px"></span><span class="spark" style="--angle:231deg;--distance:26px"></span><span class="spark" style="--angle:261deg;--distance:31px"></span><span class="spark" style="--angle:291deg;--distance:36px"></span><span class="spark" style="--angle:321deg;--distance:24px"></span></i><i class="burst burst-two"><span class="spark" style="--angle:8deg;--distance:27px"></span><span class="spark" style="--angle:39deg;--distance:32px"></span><span class="spark" style="--angle:69deg;--distance:20px"></span><span class="spark" style="--angle:99deg;--distance:25px"></span><span class="spark" style="--angle:129deg;--distance:30px"></span><span class="spark" style="--angle:159deg;--distance:35px"></span><span class="spark" style="--angle:189deg;--distance:23px"></span><span class="spark" style="--angle:219deg;--distance:28px"></span><span class="spark" style="--angle:249deg;--distance:33px"></span><span class="spark" style="--angle:279deg;--distance:21px"></span><span class="spark" style="--angle:309deg;--distance:26px"></span><span class="spark" style="--angle:339deg;--distance:31px"></span></i><i class="burst burst-three"><span class="spark" style="--angle:15deg;--distance:34px"></span><span class="spark" style="--angle:45deg;--distance:22px"></span><span class="spark" style="--angle:75deg;--distance:27px"></span><span class="spark" style="--angle:105deg;--distance:32px"></span><span class="spark" style="--angle:135deg;--distance:20px"></span><span class="spark" style="--angle:165deg;--distance:25px"></span><span class="spark" style="--angle:195deg;--distance:30px"></span><span class="spark" style="--angle:225deg;--distance:35px"></span><span class="spark" style="--angle:255deg;--distance:23px"></span><span class="spark" style="--angle:285deg;--distance:28px"></span><span class="spark" style="--angle:315deg;--distance:33px"></span><span class="spark" style="--angle:345deg;--distance:21px"></span></i><i class="burst burst-four"><span class="spark" style="--angle:3deg;--distance:24px"></span><span class="spark" style="--angle:34deg;--distance:29px"></span><span class="spark" style="--angle:64deg;--distance:34px"></span><span class="spark" style="--angle:94deg;--distance:22px"></span><span class="spark" style="--angle:124deg;--distance:27px"></span><span class="spark" style="--angle:154deg;--distance:32px"></span><span class="spark" style="--angle:184deg;--distance:20px"></span><span class="spark" style="--angle:214deg;--distance:25px"></span><span class="spark" style="--angle:244deg;--distance:30px"></span><span class="spark" style="--angle:274deg;--distance:35px"></span><span class="spark" style="--angle:304deg;--distance:23px"></span><span class="spark" style="--angle:334deg;--distance:28px"></span></i><i class="burst burst-five"><span class="spark" style="--angle:12deg;--distance:31px"></span><span class="spark" style="--angle:42deg;--distance:36px"></span><span class="spark" style="--angle:72deg;--distance:24px"></span><span class="spark" style="--angle:102deg;--distance:29px"></span><span class="spark" style="--angle:132deg;--distance:34px"></span><span class="spark" style="--angle:162deg;--distance:22px"></span><span class="spark" style="--angle:192deg;--distance:27px"></span><span class="spark" style="--angle:222deg;--distance:32px"></span><span class="spark" style="--angle:252deg;--distance:20px"></span><span class="spark" style="--angle:282deg;--distance:25px"></span><span class="spark" style="--angle:312deg;--distance:30px"></span><span class="spark" style="--angle:342deg;--distance:35px"></span></i><i class="burst burst-six"><span class="spark" style="--angle:20deg;--distance:21px"></span><span class="spark" style="--angle:50deg;--distance:26px"></span><span class="spark" style="--angle:80deg;--distance:31px"></span><span class="spark" style="--angle:110deg;--distance:36px"></span><span class="spark" style="--angle:140deg;--distance:24px"></span><span class="spark" style="--angle:170deg;--distance:29px"></span><span class="spark" style="--angle:200deg;--distance:34px"></span><span class="spark" style="--angle:230deg;--distance:22px"></span><span class="spark" style="--angle:260deg;--distance:27px"></span><span class="spark" style="--angle:290deg;--distance:32px"></span><span class="spark" style="--angle:320deg;--distance:20px"></span><span class="spark" style="--angle:350deg;--distance:25px"></span></i><i class="burst burst-seven"><span class="spark" style="--angle:5deg;--distance:28px"></span><span class="spark" style="--angle:35deg;--distance:33px"></span><span class="spark" style="--angle:65deg;--distance:21px"></span><span class="spark" style="--angle:95deg;--distance:26px"></span><span class="spark" style="--angle:125deg;--distance:31px"></span><span class="spark" style="--angle:155deg;--distance:36px"></span><span class="spark" style="--angle:185deg;--distance:24px"></span><span class="spark" style="--angle:215deg;--distance:29px"></span><span class="spark" style="--angle:245deg;--distance:34px"></span><span class="spark" style="--angle:275deg;--distance:22px"></span><span class="spark" style="--angle:305deg;--distance:27px"></span><span class="spark" style="--angle:335deg;--distance:32px"></span></i><i class="burst burst-eight"><span class="spark" style="--angle:17deg;--distance:35px"></span><span class="spark" style="--angle:47deg;--distance:23px"></span><span class="spark" style="--angle:77deg;--distance:28px"></span><span class="spark" style="--angle:107deg;--distance:33px"></span><span class="spark" style="--angle:137deg;--distance:21px"></span><span class="spark" style="--angle:167deg;--distance:26px"></span><span class="spark" style="--angle:197deg;--distance:31px"></span><span class="spark" style="--angle:227deg;--distance:36px"></span><span class="spark" style="--angle:257deg;--distance:24px"></span><span class="spark" style="--angle:287deg;--distance:29px"></span><span class="spark" style="--angle:317deg;--distance:34px"></span><span class="spark" style="--angle:347deg;--distance:22px"></span></i><i class="burst burst-nine"><span class="spark" style="--angle:10deg;--distance:25px"></span><span class="spark" style="--angle:40deg;--distance:30px"></span><span class="spark" style="--angle:70deg;--distance:35px"></span><span class="spark" style="--angle:100deg;--distance:23px"></span><span class="spark" style="--angle:130deg;--distance:28px"></span><span class="spark" style="--angle:160deg;--distance:33px"></span><span class="spark" style="--angle:190deg;--distance:21px"></span><span class="spark" style="--angle:220deg;--distance:26px"></span><span class="spark" style="--angle:250deg;--distance:31px"></span><span class="spark" style="--angle:280deg;--distance:36px"></span><span class="spark" style="--angle:310deg;--distance:24px"></span><span class="spark" style="--angle:340deg;--distance:29px"></span></i><i class="burst burst-ten"><span class="spark" style="--angle:2deg;--distance:32px"></span><span class="spark" style="--angle:32deg;--distance:20px"></span><span class="spark" style="--angle:62deg;--distance:25px"></span><span class="spark" style="--angle:92deg;--distance:30px"></span><span class="spark" style="--angle:122deg;--distance:35px"></span><span class="spark" style="--angle:152deg;--distance:23px"></span><span class="spark" style="--angle:182deg;--distance:28px"></span><span class="spark" style="--angle:212deg;--distance:33px"></span><span class="spark" style="--angle:242deg;--distance:21px"></span><span class="spark" style="--angle:272deg;--distance:26px"></span><span class="spark" style="--angle:302deg;--distance:31px"></span><span class="spark" style="--angle:332deg;--distance:36px"></span></i><i class="burst burst-eleven"><span class="spark" style="--angle:14deg;--distance:22px"></span><span class="spark" style="--angle:44deg;--distance:27px"></span><span class="spark" style="--angle:74deg;--distance:32px"></span><span class="spark" style="--angle:104deg;--distance:20px"></span><span class="spark" style="--angle:134deg;--distance:25px"></span><span class="spark" style="--angle:164deg;--distance:30px"></span><span class="spark" style="--angle:194deg;--distance:35px"></span><span class="spark" style="--angle:224deg;--distance:23px"></span><span class="spark" style="--angle:254deg;--distance:28px"></span><span class="spark" style="--angle:284deg;--distance:33px"></span><span class="spark" style="--angle:314deg;--distance:21px"></span><span class="spark" style="--angle:344deg;--distance:26px"></span></i><i class="burst burst-twelve"><span class="spark" style="--angle:22deg;--distance:29px"></span><span class="spark" style="--angle:52deg;--distance:34px"></span><span class="spark" style="--angle:82deg;--distance:22px"></span><span class="spark" style="--angle:112deg;--distance:27px"></span><span class="spark" style="--angle:142deg;--distance:32px"></span><span class="spark" style="--angle:172deg;--distance:20px"></span><span class="spark" style="--angle:202deg;--distance:25px"></span><span class="spark" style="--angle:232deg;--distance:30px"></span><span class="spark" style="--angle:262deg;--distance:35px"></span><span class="spark" style="--angle:292deg;--distance:23px"></span><span class="spark" style="--angle:322deg;--distance:28px"></span><span class="spark" style="--angle:352deg;--distance:33px"></span></i></div>
+    <div class="topline"><span class="status-dot"></span> EVENT NOTIFICATION</div>
+    <div class="cake" aria-hidden="true"><span class="cake-art">🎂</span><span class="candle-flame"></span></div>
+    <p class="eyebrow">A special event has been detected</p>
+    <h1 id="title">Kaye&#39;s<br><span>19th Birthday</span></h1>
+    <div class="rule"><span>✦</span></div>
+    <p class="intro">You’re invited to celebrate<br>another trip around the sun with</p>
+    <p class="name">Jasmine Kaye</p>
+    <section class="details" aria-label="Party details">
+      <div class="detail"><span class="icon">◷</span><div><small>DATE &amp; TIME</small><strong>Sunday, November 6 <i>·</i> 8:00 PM</strong></div></div>
+      <div class="detail"><span class="icon">⌖</span><div><small>LOCATION</small><strong>DA Villas Cabin Resort<br>Purok 5, Calaocan<br>Santiago City</strong></div></div>
+    </section>
+    <div class="buttons"><button class="accept-button" id="acceptButton" type="button">ACCEPT INVITATION</button></div>
+    <p class="footer">PLEASE BRING YOUR BEST PARTY MODE <span>✦</span></p>
+  </main>
+  <script>
+    const acceptButton = document.getElementById("acceptButton");
+    acceptButton.addEventListener("click", () => {
+      acceptButton.textContent = "INVITATION ACCEPTED ✓";
+      acceptButton.disabled = true;
+      acceptButton.setAttribute("aria-live", "polite");
+    });
+  </script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
